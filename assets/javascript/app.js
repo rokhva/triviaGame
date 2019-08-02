@@ -27,6 +27,13 @@
 // ______________________________________________________________________________________________________________________//
 
 
+
+
+//add a variable that increments the questions by one and put that variable in the render question function
+//add if statements to the timer function
+
+
+
 //an array of objects storing the questions and answers, and correct answers
 var questions = 
 [
