@@ -27,7 +27,7 @@
 // ______________________________________________________________________________________________________________________//
 
 
-//an array of objects storing the questions and answers
+//an array of objects storing the questions and answers, and correct answers
 var questions = 
 [
   {
@@ -43,6 +43,7 @@ var questions =
   }
 ];
 
+//global variables
 var time = 0;
 var counter = 0;
 var timeLeft = 60;
@@ -52,47 +53,58 @@ $("#start").on("click", start);
 
 
   
-//   }
-
+//call to render the first question and start the timer upon start button click
 function start (){
     renderQuestion();
     setTimer();
 }
 
-
+//choose and display question and snswer set on screen
 function renderQuestion (){
+
+    //pulls the first question out of the questions array
     var chosenQuestion = questions[0].question;
     console.log(chosenQuestion);
     $("#question").text(chosenQuestion);
 
-   
+    //pulls possible answers out of the coices array and creates a button element to display each in
     for (var i=0; i < questions[0].choices.length; i++){
     console.log(questions[0].choices[i]);
+   
     // $(".choice").text(questions[0].choices[i]);
     questionChoices = $("<button>");
     questionChoices.text(questions[0].choices[i]);
     $(".ansFlex").append(questionChoices);
-    
-
-    //how to show buttons??
-    // $(".choice").css("display", "block");
+   
     }
+    //hides start button
     $("#start").css("display", "none");
 }
 
+
+//countdown timer
 function setTimer (){
-    // var timer = select('#time');
-    // timer.html(counter);
     
+    //sets interval the timer will count down at
+    var interval = setInterval(timeIt, 1000);
     
     function timeIt (){
+
+        //shows time on screen
         $('#time').html(timerConverter(timeLeft - counter));
+
+        //increments the counter by one
         counter++;
+
+        //stops the time at 0
+        if(counter == timeLeft){
+        clearInterval(interval); //why is this stopping at 1??
+        counter = 0;
+        }  
     }
-    setInterval(timeIt, 1000);
-    console.log(timerConverter(timeLeft - counter));
 }
 
+//converts interval into seconds and minutes
 function timerConverter (s){
     var min = Math.floor(s / 60);
     var sec = s % 60;
@@ -101,13 +113,25 @@ function timerConverter (s){
 
 
 
-//looping through the questions and selecting one
-for ( var i = 0; i < questions.length; i++ ) {
-    var question = questions[i].question;
-
-}
-
-//grab the first question in the object array and display
 
 
-//How do you pull in another question? Chain of functions? Or is there an easier
+
+
+
+
+
+
+
+
+
+
+// //looping through the questions and selecting one
+// for ( var i = 0; i < questions.length; i++ ) {
+//     var question = questions[i].question;
+
+// }
+
+// //grab the first question in the object array and display
+
+
+// //How do you pull in another question? Chain of functions? Or is there an easier
