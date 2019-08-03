@@ -58,8 +58,6 @@ var timeLeft = 60;
 //onclick event listeners
 $("#start").on("click", start);
 
-
-  
 //call to render the first question and start the timer upon start button click
 function start (){
     renderQuestion();
@@ -130,26 +128,24 @@ function checkGuess(){
         var id = $(this).attr("id");
         if(id == questions[0].answer){
             $('#time').hide();
+            $(".ansFlex").hide();
+            $("#question").hide();
             // $(".trivia").hide();
             // $(".trivia").empty(addText());
             var winner = $("<div>");
-            winner.text("you won!");
-            $(".ansFlex").append(winner);
+            winner.text("That's Right!");
+            $("#guessResult").append(winner);
+            
         } else{
             $(".answers").hide();
             $('#time').hide();
             var loser = $("<div>");
-            loser.text("you lost!");
+            loser.text("So wrong!");
             $(".ansFlex").append(loser);
         }
     
 }
 
-function addText(){
-    var winner = $("<div>");
-    winner.text("you won!");
-    $(".ansFlex").append(winner);
-}
 
 
 

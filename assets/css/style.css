@@ -37,3 +37,7 @@ button{
 .choice{
     display: none;
 }
+
+#guessResult{
+    text-align: center;
+}
