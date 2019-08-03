@@ -56,7 +56,11 @@ var counter = 0;
 var timeLeft = 60;
 
 //onclick event listeners
+//Start button listener
 $("#start").on("click", start);
+//click listener for the question choice buttons
+$('body').on('click', '.possibleChoices', checkGuess);
+
 
 //call to render the first question and start the timer upon start button click
 function start (){
@@ -108,6 +112,17 @@ function setTimer (){
         clearInterval(interval); //why is this stopping at 1??
         counter = 0;
         }  
+
+        if (counter == 0){
+            $('#time').hide();
+            $(".ansFlex").hide();
+            $("#question").hide();
+
+            //creates div and displays a "you failed" message
+            var loser = $("<div>");
+            loser.text("Times Up!");
+            $("#guessResult").append(loser);
+        }
     }
 }
 
@@ -119,25 +134,37 @@ function timerConverter (s){
 }
 
 
-$('body').on('click', '.possibleChoices', checkGuess);
+
+
 
 function checkGuess(){
     console.log($(this).attr("id"));
     $(this).attr("id");
         
         var id = $(this).attr("id");
-        if(id == questions[0].answer){
+
+        //determines if the guess was the correct answer
+        if(id == questions[0].answer){ 
+
+            //clears out timer, question, and answer buttons
             $('#time').hide();
             $(".ansFlex").hide();
             $("#question").hide();
+
+            //creates div and displays a "you got it" message
             var winner = $("<div>");
             winner.text("That's Right!");
             $("#guessResult").append(winner);
             
+        
         } else{
+
+            //clears out timer, question, and answer buttons
             $('#time').hide();
             $(".ansFlex").hide();
             $("#question").hide();
+
+            //creates div and displays a "you failed" message
             var loser = $("<div>");
             loser.text("So wrong!");
             $("#guessResult").append(loser);
@@ -145,21 +172,3 @@ function checkGuess(){
     
 }
 
-
-
-
-
-
-
-
-
-// //looping through the questions and selecting one
-// for ( var i = 0; i < questions.length; i++ ) {
-//     var question = questions[i].question;
-
-// }
-
-// //grab the first question in the object array and display
-
-
-// //How do you pull in another question? Chain of functions? Or is there an easier
