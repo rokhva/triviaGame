@@ -130,18 +130,17 @@ function checkGuess(){
             $('#time').hide();
             $(".ansFlex").hide();
             $("#question").hide();
-            // $(".trivia").hide();
-            // $(".trivia").empty(addText());
             var winner = $("<div>");
             winner.text("That's Right!");
             $("#guessResult").append(winner);
             
         } else{
-            $(".answers").hide();
             $('#time').hide();
+            $(".ansFlex").hide();
+            $("#question").hide();
             var loser = $("<div>");
             loser.text("So wrong!");
-            $(".ansFlex").append(loser);
+            $("#guessResult").append(loser);
         }
     
 }
