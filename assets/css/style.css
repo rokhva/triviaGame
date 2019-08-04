@@ -34,9 +34,9 @@ button{
     text-align: center;
 }
 
-.choice{
+/* .choice{
     display: none;
-}
+} */
 
 #guessResult{
     text-align: center;
