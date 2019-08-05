@@ -1,5 +1,10 @@
 *{
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: #f0a9c9;
 }
 
 .container{
@@ -7,6 +12,30 @@
     height: 500px;
     width: 70%;
     margin: auto;
+    background-color: beige;
+}
+
+.pageTitle{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.babyTitle{
+    border-left: 3px solid black;
+    padding-left: 16px;
+    margin-left: 32px;
+    padding-top: 10px;
+}
+
+.sushiImg{
+    border: 2px solid red;
+    height: 600px;
+    width: 300px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
 }
 
 .title{
