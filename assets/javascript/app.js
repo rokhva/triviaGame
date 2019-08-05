@@ -31,10 +31,12 @@ $("#start").on("click", start);
 
 $('body').on('click', '.possibleChoices', checkGuess);
 
-$('body').on('click', '#reset', start);
+$('body').on('click', '#reset', reset);
+
 
 //functions
 function start(){
+    
     $("#start").remove();
     questionTimer();
     chooseQuestion();
@@ -93,6 +95,7 @@ function checkGuess(){
 function correctAnswer(){
     console.log("correct");
     clearInterval(timer);
+    $("#time").hide();
     $(".ansFlex").empty();
     correct++;
     $("#question").html("Yup that's right!");
@@ -108,6 +111,7 @@ function correctAnswer(){
 function incorrectAnswer(){
     console.log("incorrect");
     clearInterval(timer);
+    $("#time").hide();
     $(".ansFlex").empty();
     $(".ansFlex").append("The correct answer was: " + questions[currentQuestion].display);
     incorrect++;
@@ -121,6 +125,7 @@ function incorrectAnswer(){
 }
 
 function nextQuestion(){
+    $("#time").show();
     counter = 30;
     $("#time").html(counter);
     $(".ansFlex").empty();
@@ -132,6 +137,7 @@ function nextQuestion(){
 function timeUp(){
     clearInterval(timer);
     noAnswer++;
+    $("#time").hide();
     $(".ansFlex").empty();
     $("#question").html("TIMES UP");
     $(".ansFlex").append("The correct answer was:"+ " " + questions[currentQuestion].display);
@@ -144,19 +150,22 @@ function timeUp(){
 
 function showScore(){
     clearInterval(timer);
+    $("#time").hide();
     $(".ansFlex").empty();
     $("#question").html("NO MORE QUESTIONS");
     $(".ansFlex").append("<h3>Correct :" + correct, "</h3>");
     $(".ansFlex").append("<h3>Inorrect :" + incorrect, "</h3>");
     $(".ansFlex").append("<h3>Unanswered :" + noAnswer, "</h3>");
-    $(".ansFlex").append("<button id = 'reset'>RESET</button");
+    $(".ansFlex").append("<button id = 'reset'>AGAIN</button");
 }
 
 function reset(){
-    currentQuestion = 0;
-    counter = 0;
-    correct = 0;
-    incorrect = 0;
-    noAnswer = 0;
-    questionNumber = 1;
+    // currentQuestion = 0;
+    // counter = 0;
+    // correct = 0;
+    // incorrect = 0;
+    // noAnswer = 0;
+    // questionNumber = 1;
+   
+    location.reload();
 }
