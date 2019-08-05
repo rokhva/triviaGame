@@ -152,7 +152,7 @@ function correctAnswer(){
     //adds on to the number of correct answers
     correct++;
     //confimes that they chose the correct answer
-    $("#question").html("Yup that's right!");
+    $("#question").html("Yup that's right, you're on a sushi roll!");
 
     //checks to see if that was the last question in the array
     if (currentQuestion === questionNumber){
@@ -177,7 +177,7 @@ function incorrectAnswer(){
     //adds one to the nuber of incorrect answers
     incorrect++;
 
-    $("#question").html("NOPE THAT'S WRONG");
+    $("#question").html("How could you not know that?!");
     
     //checks to see if that was the last question in the array
     if (currentQuestion === questionNumber){
@@ -213,7 +213,7 @@ function timeUp(){
     //hides time, question, and possible answers
     $("#time").hide();
     $(".ansFlex").empty();
-    $("#question").html("TIMES UP");
+    $("#question").html("Times up!");
     //shows what the correct answer was
     $(".ansFlex").append("The correct answer was:"+ " " + questions[currentQuestion].display);
     if (currentQuestion === questionNumber){
@@ -228,11 +228,11 @@ function showScore(){
     clearInterval(timer);
     $("#time").hide();
     $(".ansFlex").empty();
-    $("#question").html("NO MORE QUESTIONS");
+    $("#question").html("Your Score");
     $(".ansFlex").append("<h3>Correct :" + correct, "</h3>");
     $(".ansFlex").append("<h3>Inorrect :" + incorrect, "</h3>");
     $(".ansFlex").append("<h3>Unanswered :" + noAnswer, "</h3>");
-    $(".ansFlex").append("<button id = 'reset'>AGAIN</button");
+    $(".ansFlex").append("<button id = 'reset'>Again</button");
 }
 
 //takes user back to start screen
