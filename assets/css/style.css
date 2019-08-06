@@ -35,9 +35,8 @@ body{
 }
 
 .sushiImg{
-    border: 3px solid #ebbf48;
-    height: 600px;
-    width: 300px;
+    height: 700px;
+    width: 400px;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -117,4 +116,9 @@ h4{
 h3{
     font-weight: 100;
     font-size: 22pt;
+}
+
+.bgImage{
+    height: 100%;
+    width: 100%;
 }
